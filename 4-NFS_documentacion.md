@@ -234,5 +234,3 @@ Si todo está correcto, los 3 servidores estarán compartiendo exactamente el mi
 - Aplicaciones PHP funcionando con el mismo código en todos los Apache
 
 ---
-
-Fin del documento.
