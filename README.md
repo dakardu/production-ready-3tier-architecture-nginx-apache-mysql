@@ -1,10 +1,5 @@
-Client
-  ↓
-[ NGINX Reverse Proxy / LB ]
-  ↓
-[ Apache1 ] [ Apache2 ] [ Apache3 ]
-  ↓
-[ Database Server (Private) ]
+![Architecture](images/architecture.png)
+
 
 # 🏗️ Production-Ready 3-Tier Web Architecture (On-Premise)
 
