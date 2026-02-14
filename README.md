@@ -1,26 +1,55 @@
-# Proyecto de Lab de Apache, Nginx, SQL y Balanceo de Carga
+# 🏗️ Production-Ready 3-Tier Web Architecture (On-Premise)
 
-Este proyecto contiene varios laboratorios y configuraciones relacionadas con servidores web Apache y Nginx, bases de datos SQL, balanceo de carga, y pruebas de rendimiento
-Simularemos un pequeño clúster con esta arquitectura para realizar pruebas de carga y rendimiento en entornos distribuidos, utilizando tecnologías como Docker, NFS, Apache, Nginx y SQL.
+This project demonstrates a secure and scalable 3-tier architecture deployed across 5 virtual machines:
 
-## Archivos
+- 🔹 NGINX Reverse Proxy + Load Balancer
+- 🔹 3x Apache Web Servers (Application Layer)
+- 🔹 1x Isolated Database Server (MySQL/PostgreSQL)
 
--   [Arquitectura Web Distribuida con Apache, Nginx y MySQL](1-arquitectura.md)
--   [Documentación de la Base de Datos](2-DB_documentacion.md)
--   [Conexión Apache con la Base de Datos](3-conexion_apache_DB.md)
--   [Configuración NFS](4-NFS_documentacion.md)
--   [Balanceo de Carga](5-lab_balanceo_carga.md)
--   [Pruebas de Carga con WRK](6-carga_pruebas_wrk.md)
+The design enforces strict network segmentation and access control between tiers, following production-grade security practices.
 
-## Requisitos
+      ┌─────────┐
+      │  Cliente │
+      └────┬────┘
+           │
+           ▼
+   ┌──────────────┐
+   │   NGINX LB    │  ← reverse proxy + balanceo
+   └──────┬────────┘
+     ┌────┴───────┬──────┐
+     ▼             ▼       ▼
+┌────────┐   ┌────────┐   ┌────────┐
+│ Apache │   │ Apache │   │ Apache │  ← 3 apps en 3 VMs
+└────┬───┘   └───┬────┘   └───┬────┘
+     │           │            │
+     └───────────┴────────────┘
+                 ▼
+          ┌──────────┐
+          │   SQL DB  │
+          └──────────┘
 
-1. Docker
-2. NFS
-3. Apache
-4. Nginx
-5. WRK
-6. DB
 
-## Instalación
+## 🔐 Security Design
+
+- Only NGINX is exposed to the internet
+- Apache servers only accept traffic from NGINX
+- Database server is isolated and only accessible from Apache tier
+- No direct public access to application or database layers
+
+
+## ⚙️ Tech Stack
+
+- NGINX (Reverse Proxy / Load Balancer)
+- Apache HTTP Server
+- Linux (Ubuntu / AlmaLinux)
+- Virtual Machines
+- Network segmentation
+
+## 🧪 Results / Tests
+
+- Logs
+- Trafico Balanceo
+- Metricas
+
 
 Sigue las instrucciones en cada archivo para configurar y realizar las pruebas correspondientes.
