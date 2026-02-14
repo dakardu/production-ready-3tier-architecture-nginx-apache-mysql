@@ -8,25 +8,8 @@ This project demonstrates a secure and scalable 3-tier architecture deployed acr
 
 The design enforces strict network segmentation and access control between tiers, following production-grade security practices.
 
-      ┌─────────┐
-      │  Cliente │
-      └────┬────┘
-           │
-           ▼
-   ┌──────────────┐
-   │   NGINX LB    │  ← reverse proxy + balanceo
-   └──────┬────────┘
-     ┌────┴───────┬──────┐
-     ▼             ▼       ▼
-┌────────┐   ┌────────┐   ┌────────┐
-│ Apache │   │ Apache │   │ Apache │  ← 3 apps en 3 VMs
-└────┬───┘   └───┬────┘   └───┬────┘
-     │           │            │
-     └───────────┴────────────┘
-                 ▼
-          ┌──────────┐
-          │   SQL DB  │
-          └──────────┘
+   <img width="373" height="339" alt="image" src="https://github.com/user-attachments/assets/647115e5-fd12-45f1-9d54-865c101f448c" />
+
 
 
 ## 🔐 Security Design
