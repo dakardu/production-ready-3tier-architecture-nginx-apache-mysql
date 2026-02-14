@@ -172,5 +172,3 @@ Los tres backends reciben tráfico en Round Robin.
 - [ ] Documentar arquitectura final del entorno
 
 ---
-
-# ✔ Archivo generado como `lab_balanceo_carga.md`
